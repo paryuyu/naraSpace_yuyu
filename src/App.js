@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { createGlobalStyle } from 'styled-components';
 import './App.css';
+import Layout from './components/layout';
+import PAGE01 from './components/pages/page01';
+import PAGE02 from './components/pages/page02';
 
 function App() {
+  useEffect(()=>{
+    const dataLoad = async ()=>{
+      const response = await fetch("http://localhost:9000/users");
+      const json = await  response.json();
+      console.log(json);
+    }
+    dataLoad();
+  },[]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route element={<Layout/>}>
+          <Route path="/" element={<PAGE01 />} />
+          <Route path="/user/*" element={<PAGE02 ><h1>DSADADADSA</h1></PAGE02>} />
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 
