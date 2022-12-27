@@ -9,14 +9,11 @@ const Outlined = styled.div`
     align-items:center;
     `
 
-//텐스 -> 면접 제안 : 다음주 화요일 - 1월 3일 오전 11시. 대면면접 : 시간, 장소
 
-
-// const PageNumber = styled.div`
-// disply:flex;
-// flex-direction:row;
-// background:red;
-// `
+const PageNumber = styled.p`
+margin-right:20;
+cursor:pointer;
+`
 
 
 export default function Layout() {
@@ -44,9 +41,8 @@ export default function Layout() {
         <Outlined>
             <img src="/nara_logo.png" height={30} />
             <div style={{ display: 'flex', flexDirection: 'row' }}>
-                <p style={{ marginRight: 20, cursor: 'pointer' }} onClick={handlePage}>page01</p>
-
-                <p style={{ marginRight: 10, cursor: 'pointer' }} onClick={handlePage}>page02</p>
+                <PageNumber onClick={handlePage}>page01</PageNumber>
+                <PageNumber onClick={handlePage}>page02</PageNumber>
             </div>
         </Outlined>
         <Outlet/>
