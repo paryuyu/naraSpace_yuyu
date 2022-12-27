@@ -3,12 +3,10 @@ import styled from "styled-components";
 
 const Item = styled.div`
 display: flex;
-justify-content:space-between;
-padding-right:10px;
-padding-left:10px;
+justify-content:space-around;
 `
 
-function ListItem({ items }) {
+function ListItemTwo({ items }) {
 
   const [chk, setChk] = useState();
 
@@ -26,15 +24,10 @@ function ListItem({ items }) {
     <Item>
       <p>{items.name}</p>
       <p>{items.date}</p>
-      {/* <input
-        type='checkbox'
-        id='checkbox'
-        checked={chk}
-        onChange={checkHandle}
-      /> */}
+
     </Item>
     <hr />
   </>);
 }
 
-export default ListItem;
+export default ListItemTwo;
