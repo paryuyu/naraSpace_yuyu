@@ -29,7 +29,8 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<PAGE01 />} />
-          <Route path="/user/*" element={<PAGE02 />} />
+          <Route path="/user" element={<PAGE02 />} />
+          <Route path="/user/:id" element={<PAGE02 />} />
         </Route>
       </Routes>
     </Router>

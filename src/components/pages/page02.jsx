@@ -22,7 +22,7 @@ export default function PAGE02() {
     }
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 50, flex:1}}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 50, flex: 1 }}>
 
             <OutLined>
                 <MiniHeader>

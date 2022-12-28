@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigation } from "react-router-dom";
 import styled from "styled-components";
 
 const Item = styled.div`
@@ -15,15 +15,12 @@ cursor:pointer;
 `
 
 function ListItemThree({ items, onDetail }) {
-
-    useEffect(() => {
-
-    }, [])
-
+    //TODO: 동적라우팅
+    
    
     
     return (<>
-        <Item onClick={()=>{onDetail(items.id)}}>
+        <Item onClick={()=>{onDetail(items.id); }}>
             <p>{items.name}</p>
             <p>{items.date}</p>
         </Item>

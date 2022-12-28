@@ -18,7 +18,6 @@ function ItemDetail({ item }) {
     `
 
 
-
     const [img, setImg] = useState("default.png")
     
     useEffect(() => {
@@ -28,8 +27,12 @@ function ItemDetail({ item }) {
         }
     }, [])
 
+    const clickBox =()=>{
+        console.log(item.id)
+    }
+
     return (<>
-        {item && <>
+        {item && <div onClick={clickBox}>
             <img src={require(`../../profile_img/${img}`)} />
   
             <TextBox> <TitleText>이름</TitleText> {item.name}</TextBox>
@@ -37,7 +40,7 @@ function ItemDetail({ item }) {
             <TextBox> <TitleText>생년월일</TitleText> {item.date}</TextBox>
             <TextBox> <TitleText>한마디</TitleText> {item.comment}</TextBox> 
             
-            </>}
+            </div>}
     </>);
 }
 
