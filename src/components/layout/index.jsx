@@ -1,50 +1,91 @@
-import { Link, Outlet, useNavigate, useRoutes } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate, useRoutes } from "react-router-dom";
 import styled from "styled-components";
 const Outlined = styled.div`
-    padding:5px;
-    background:#cbc5f0;
-    display:flex;
-    flex-direction:'row'; 
-    justify-content:space-between ; 
-    align-items:center;
-    `
+padding-top:5px;
+background:#cbc5f0;
+display:flex;
+flex-direction:row; 
+justify-content:space-between ; 
+align-items:center;
+@media screen and (max-width: 650px){
+    flex-direction:column; 
 
+}`
+
+
+const PageNumberBox = styled.div`
+display: flex;
+flex-direction: row;
+@media screen and (max-width: 650px){
+    display:none;
+}
+`
+const MPageNumberBox = styled.div`
+display: flex;
+justify-content:space-around; 
+width: 100%;
+cursor: pointer;
+height: 30px;
+alignItems: center;
+@media screen and (min-width: 650px){
+    display:none;
+}`
+
+const MpageNumber = styled.div`
+border: 0;
+color: #fff;
+display:flex;
+justify-content:center;
+align-items:center;
+
+`
 
 const PageNumber = styled.p`
-margin-right:20;
-cursor:pointer;
+    margin-right:20;
+    cursor:pointer;
 `
 
 
 export default function Layout() {
-    let navi = useNavigate()
 
+    let location = useLocation()
+    console.log(location.pathname,'pathname')
+    //TODO: pathname 으로 MpageNumber 버튼? 색 변경해주기
+
+
+    let navigate = useNavigate()
 
     const handlePage = (evt) => {
         let target = evt.target.innerText;
         console.log(target)
         switch (target) {
             case "page01":
-                navi("/");
+                navigate("/");
                 break;
-                
+
             case "page02":
-                navi("/user");
+                navigate("/user");
                 break;
         }
     }
-
-
-//TODO: hover랑 상태 유지
-
+    
+ 
     return (<>
         <Outlined>
-            <img src="/nara_logo.png" height={30} />
-            <div style={{ display: 'flex', flexDirection: 'row' }}>
+
+            <img src="/nara_logo.png" height={30} style={{ justifyContent: 'space-around' }} />
+
+            <PageNumberBox >
                 <PageNumber onClick={handlePage}>page01</PageNumber>
                 <PageNumber onClick={handlePage}>page02</PageNumber>
-            </div>
+            </PageNumberBox>
+
+            <MPageNumberBox >
+                <MpageNumber onClick={handlePage}>page01</MpageNumber>
+                <MpageNumber onClick={handlePage}>page02</MpageNumber>
+            </MPageNumberBox>
+
         </Outlined>
-        <Outlet/>
+        <Outlet />
     </>);
 }

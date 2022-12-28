@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+
 import styled from "styled-components";
 
 const Item = styled.div`
@@ -8,25 +8,13 @@ justify-content:space-around;
 
 function ListItemTwo({ items }) {
 
-  const [chk, setChk] = useState();
-
-  useEffect(() => {
-    setChk(items.checked)
-  }, [])
-
-  const checkHandle = ()=>{
-    setChk(current => !current)
-  }
-
-
 
   return (<>
-    <Item>
+    <Item >
       <p>{items.name}</p>
       <p>{items.date}</p>
-
     </Item>
-    <hr />
+    <hr style={{margin:0}}/>
   </>);
 }
 

@@ -5,35 +5,31 @@ import './App.css';
 import Layout from './components/layout';
 import PAGE01 from './components/pages/page01';
 import PAGE02 from './components/pages/page02';
+import { Connect } from 'react-redux';
 import { useDispatch, useSelector } from 'react-redux';
 function App() {
-const [datas, setDatas] = useState()
   
-  useEffect(()=>{
-
+  const dispatch =useDispatch();
+  useEffect(() => {
+    //이렇게 하니까 핸드폰에서는 화면이 안나옴.
     //json-server에 올려둔 데이터 불러오기
-    const dataLoad = async ()=>{
+    const dataLoad = async () => {
       const response = await fetch("http://localhost:9000/users");
       const json = await response.json();
       console.log(json);
       //데이터를 리듀서에 올리기
-      setDatas(json)
+      dispatch({type:"init", value: json});
     }
     dataLoad();
-
-
-  },[]);
-
-
-
+  }, []);
 
   return (
-  
+
     <Router>
       <Routes>
-        <Route element={<Layout/>}>
-          <Route path="/" element={<PAGE01 datas={datas}/>} />
-          <Route path="/user/*" element={<PAGE02/>} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<PAGE01 />} />
+          <Route path="/user/*" element={<PAGE02 />} />
         </Route>
       </Routes>
     </Router>
