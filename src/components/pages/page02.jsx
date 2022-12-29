@@ -1,15 +1,18 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import ListItemThree from "../list/Item03";
-import ItemDetail from "../list/ItemDetail";
+import ItemDetail01 from "../list/ItemDetail01";
+
+
 const OutLined = styled.div`
     width:250px;
 `
 const MiniHeader = styled.div`
     background:#cbc5f0;
 `
+
+
 export default function PAGE02() {
     const [selecId, setSelecId] = useState();
 
@@ -48,7 +51,7 @@ export default function PAGE02() {
             <OutLined>
                 {list.map((one, index) => {
                     if (one.id === selecId) {
-                        return <ItemDetail item={one} key={index} />
+                        return <ItemDetail01 item={one} key={index} />
                     }
                 })
 

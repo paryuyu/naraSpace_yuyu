@@ -25,7 +25,9 @@ const userReducer = (state = [], action) => {
 
     case "sort":
       if(action.value === "desc") {
+
         const desc =state.sort((a,b)=>{
+
           if(a.date === b.date) {
             return a.name > b.name ? 1 : -1;
           }else {
@@ -45,16 +47,10 @@ const userReducer = (state = [], action) => {
             return a.date < b.date ? 1: -1; // 
           }
         });
+        
         return [...asc];
       }
       
-      // return state.map((e) => {
-      //   if (e.id === action.value) {
-      //     return { ...e, checked: false };
-      //   }
-      
-      //   return e;
-      // });
 
     default:
       return state;

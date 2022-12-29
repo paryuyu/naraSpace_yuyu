@@ -4,6 +4,7 @@ import styled from "styled-components";
 import ListItemTwo from "../list/item02";
 import { store } from "../../reducer/store";
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 
 const Container = styled.div`
     flex :1;
@@ -11,63 +12,105 @@ const Container = styled.div`
     align-items:center;
     justify-content:center;
      flex-direction:row;
-
+ 
      @media screen and (max-width: 650px){
         flex-direction:column;
+        justify-content:start;
+
     }
    
 `
 const OutLined = styled.div`
     width:250px;
+    @media screen and (max-width: 650px){
+        height:200px;
+        width:100%;
+    }
 `
 const MiniHeader = styled.div`
     background:#cbc5f0;
 `
 const ListOutLined = styled.div`
-    height:490px;
-    overflow:scroll;
+    height:450px;
+    overflow-y:scroll;
+
+    &.rightList{
+        height:410px;
+        @media screen and (max-width: 650px){
+            height:200px;
+        }
+    }
+
     @media screen and (max-width: 650px){
         height:200px;
-        width:100%;
     }
+
     `
+
 const HorizenArrow = styled.img`
-    height:30;
+    height:25;
     @media screen and (max-width: 650px){
       display:none;
     }
     `
 const VerArrow = styled.img`
-    height:20;
+    height:25;
     margin-bottom:10px;
     margin-top:10px;
     @media screen and (min-width: 650px){
       display:none;
     }
     `
+const Bt = styled.button`
+    border:0;
+    background:#4130BE;
+    color:white;
+    width:100%;
+    height:30px;
+    border-radius:10px;
+    margin-top:10px;
 
-export default function PAGE01() {
-    
+`
+//폰트도 바꿔주기
+//30 40 10 퍼센트로 해주기
+export default function PAGE01({ ogData }) {
     let dispatch = useDispatch();
 
     //상태값 가져오기
     const users = useSelector(state => state);
 
+
+
+
     const handleSort = (evt) => {
-        
-        console.log(evt.target.value)
+
         switch (evt.target.value) {
             case "up":
-                dispatch({type:"sort", value : "asc"});
-                //오름차순으로 바꾸기
+                dispatch({ type: "sort", value: "asc" });
                 break;
 
             case "down":
-                dispatch({type:"sort", value : "desc"});
-                //내림차순으로 바꾸기
+                dispatch({ type: "sort", value: "desc" });
                 break;
         }
     }
+
+    const handleSave = async () => {
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].id === ogData[i].id && users[i].checked !== ogData[i].checked) {
+
+                let res = await fetch(`http://localhost:9000/users/${users[i].id}`, {
+                    method: 'PATCH',
+                    body: JSON.stringify({ checked: users[i].checked }),
+                    headers: {
+                        'Content-type': 'application/json'
+                    }
+                })
+
+            }
+        }
+    }
+
 
 
     return (
@@ -83,8 +126,6 @@ export default function PAGE01() {
                         <p>생년월일</p>
                         <p> </p>
                     </div>
-
-
                 </MiniHeader>
 
                 <ListOutLined>
@@ -92,8 +133,6 @@ export default function PAGE01() {
                         return <ListItem key={index} items={one} />
                     })}
                 </ListOutLined>
-
-
             </OutLined>
 
             <HorizenArrow src='/horizen-arrow.png' />
@@ -112,12 +151,12 @@ export default function PAGE01() {
                     </div>
                 </MiniHeader>
 
-                <ListOutLined>
-                    {users && users.filter((e)=> e.checked).map((one, index) => {
+                <ListOutLined className="rightList">
+                    {users && users.filter((e) => e.checked).map((one, index) => {
                         return <ListItemTwo key={index} items={one} />
                     })}
                 </ListOutLined>
-                {/**TODO: 저장하기 버튼 만들기 */}
+                <Bt onClick={handleSave}>저장하기</Bt>
             </OutLined>
 
         </Container>

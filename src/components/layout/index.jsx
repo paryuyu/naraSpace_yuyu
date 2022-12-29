@@ -37,7 +37,6 @@ color: #fff;
 display:flex;
 justify-content:center;
 align-items:center;
-
 `
 
 const PageNumber = styled.p`
@@ -45,15 +44,15 @@ const PageNumber = styled.p`
     cursor:pointer;
 `
 
+const LogoImg = styled.img`
+    height:30;
+    justifyContent: 'space-around';
+`
 
 export default function Layout() {
 
-    let location = useLocation()
-    console.log(location.pathname,'pathname')
-    //TODO: pathname 으로 MpageNumber 버튼? 색 변경해주기
-
-
     let navigate = useNavigate()
+    let location = useLocation()
 
     const handlePage = (evt) => {
         let target = evt.target.innerText;
@@ -73,7 +72,7 @@ export default function Layout() {
     return (<>
         <Outlined>
 
-            <img src="/nara_logo.png" height={30} style={{ justifyContent: 'space-around' }} />
+            <LogoImg onClick={()=>{ navigate("/"); }} src="/nara_logo.png" style={{  }} />
 
             <PageNumberBox >
                 <PageNumber onClick={handlePage}>page01</PageNumber>

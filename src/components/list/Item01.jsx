@@ -1,3 +1,4 @@
+import { current } from "@reduxjs/toolkit";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
@@ -8,6 +9,11 @@ justify-content:space-between;
 padding-right:10px;
 padding-left:10px;
 cursor:pointer;
+
+&.selected{
+  background: #4130be4d;
+}
+
 &:hover {
   background: cornflowerblue;
   color: white;
@@ -20,40 +26,38 @@ function ListItem({ items }) {
 
   let itemRef = useRef();
   let dispatch = useDispatch();
-  let chked = useSelector(state=>state)
+  let chked = useSelector(state => state)
   let [chk, setChk] = useState(false)
-  console.log()
 
   useEffect(() => {
     setChk(items.checked)
-
   }, [])
 
   const checkHandle = (evt) => {
-    console.log(evt.target.checked,'target')
+    console.log(evt.target.checked, 'evt.target.checked')
 
-    if (evt.target.checked === true) {
+  }
+
+  const itemBoxClickHandle = (evt) => {
+    setChk(current => !current)
+
+
+    if (chk === false) {  
       dispatch({ type: "add", value: items.id })
     } else {
       dispatch({ type: "remove", value: items.id })
     }
-  }
-  // #CBC5F0 
 
-  const itemBoxClickHandle = (evt)=>{
 
-    console.log(evt.target,'ref')
-
-     
   }
 
   return (<>
-    <Item onClick={itemBoxClickHandle}>
+    <Item onClick={itemBoxClickHandle} className={chk && "selected"}>
       <p>{items.name}</p>
       <p>{items.date}</p>
-      <input type='checkbox' checked={items.checked} onChange={checkHandle} />
+      <input type='checkbox' checked={chk} onChange={checkHandle} />
     </Item>
-    <hr style={{margin:0}}/>
+    <hr style={{ margin: 0 }} />
   </>);
 }
 
