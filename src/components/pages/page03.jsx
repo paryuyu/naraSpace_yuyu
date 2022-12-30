@@ -1,20 +1,30 @@
-import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import ItemDetail02 from "../list/ItemDetail02";
+    import { useSelector } from "react-redux";
+    import { useParams } from "react-router-dom";
+    import styled from "styled-components";
+    import ItemDetail01 from "../list/ItemDetail01";
 
+    const ItemOutline = styled.div`
+        background-color: #EBEBEB;
+        flex:1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-export default function PAGE03() {
-    const { id } = useParams();
+        @media screen and (max-width: 650px){
+            box-sizing: border-box;
+            padding: 20px;
 
+        }    
+    `
+    export default function PAGE03() {
+        const { id } = useParams();
+        let list = useSelector(state => state)
+        const found = list.find((e) => e.id.toString() === id);
 
-    let list = useSelector(state => state)
-    const found = list.find((e) => e.id.toString() === id);
-
-
-
-    return (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 50, flex: 1 }}>
-            <ItemDetail02 item={found} />
-        </div>
-    );
-}
+        return (
+            <ItemOutline>
+                <ItemDetail01 item={found} />
+            </ItemOutline>
+        );
+    }

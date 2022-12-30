@@ -6,34 +6,57 @@ import styled from "styled-components";
 
 
 export default function ItemDetail01({ item }) {
-
+    const [pathVal, setPathVal] = useState();
     const [img, setImg] = useState("default.png");
     const navigate = useNavigate()
-     
+    const { id } = useParams()
+
     const TextBox = styled.div`
-    display:flex;
-    align-items:center;
-    
+        margin-right:3px;
+        display:flex;
+        border-bottom: 1px #EBEBEB solid;
     `
 
+    const Text = styled.p`
+        font-weight:200;
+    `
     const TitleText = styled.p`
-     margin-right:4px;
-     font-weight:bold;
+        margin-right:4px;
+        margin-left: 4px;
+        font-weight:bold;
     `
-
 
     const OutlinedBox = styled.div`
-     margin-right:4px;
-     font-weight:bold;
-
-     cursor:pointer;
-     &:hover {
+        display: flex;
+        flex-direction: column;
+        font-weight:bold;
+        height: 100%;
+        background-color: #FFFFFF;
+        &.p2{
+            cursor:pointer;
+        }
+        
+        &.p2:hover {
         background: cornflowerblue;
         color: white;
         transition: 0.5s;
-      }
+        }
+        
+        &.p3{
+            width: 622px;
+            height: 425px;
 
+        }
     `
+
+    const ImgBox = styled.div`
+        height: 172px;
+        background: #cbc5f080;
+        display: flex; 
+        justify-content: center; 
+        position: relative;
+    `
+
 
 
     useEffect(() => {
@@ -46,22 +69,43 @@ export default function ItemDetail01({ item }) {
             }
 
         }
+
+        if (!id) {
+            setPathVal('p2');
+        } else {
+            setPathVal('p3')
+        }
+
     }, [])
 
-    const handleClick = ()=>{
-        console.log('click');
-        navigate(`/user/${item.id}`)   
+    const handleClick = () => {
+        navigate(`/user/${item.id}`)
     }
 
     return (<>
-        {item && <OutlinedBox onClick={handleClick}>
-            <div style={{ background: '#CBC5F0' }}>
-                <img src={require(`../../profile_img/${img}`)} />
-            </div>
-            <TextBox> <TitleText>이름</TitleText> <TitleText>{item.name}</TitleText></TextBox>
+        {item && <OutlinedBox className={pathVal === "p3" ? "p3" : "p2"} onClick={handleClick}>
 
-            <TextBox> <TitleText>생년월일</TitleText> <TitleText>{item.date}</TitleText></TextBox>
-            <TextBox> <TitleText>한마디</TitleText> <TitleText>{item.comment}</TitleText></TextBox>
+            <ImgBox >
+
+                <img style={{ position: "absolute", top: "40px" }} src={require(`../../profile_img/${img}`)} />
+            </ImgBox>
+
+
+            <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', flex: 1, padding: "25px" }}>
+                <TextBox>
+                    <TitleText>이름</TitleText>
+                    <Text>{item.name}</Text>
+                </TextBox>
+
+                <TextBox>
+                    <TitleText>생년월일</TitleText>
+                    <Text>{item.date}</Text>
+                </TextBox>
+                <TextBox>
+                    <TitleText>한마디</TitleText>
+                    <Text>{item.comment}</Text>
+                </TextBox>
+            </div>
         </OutlinedBox>}
     </>);
 }

@@ -9,7 +9,7 @@ justify-content:space-between;
 padding-right:10px;
 padding-left:10px;
 cursor:pointer;
-
+background:#FFFFFF;
 &.selected{
   background: #4130be4d;
 }

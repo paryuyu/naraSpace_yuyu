@@ -4,31 +4,28 @@ import styled from "styled-components";
 
 const Item = styled.div`
 display: flex;
-justify-content:space-around;
+justify-content:space-between;
+padding-left: 10px;
+padding-right: 10px;
 cursor:pointer;
+background-color: #FFFFFF;
+border-bottom:1px solid #EBEBEB;
+
 &:hover {
     background: #CBC5F0;
-    color: white;
+    color:#FFFFFF;
     transition: 0.5s;
   }
   
 `
 
 function ListItemThree({ items, onDetail }) {
-
-    useEffect(() => {
-
-    }, [])
-
-   
     
     return (<>
         <Item onClick={()=>{onDetail(items.id)}}>
             <p>{items.name}</p>
             <p>{items.date}</p>
         </Item>
-        
-        <hr style={{ margin: 0 }} />
     </>);
 }
 

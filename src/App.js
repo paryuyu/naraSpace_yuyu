@@ -15,14 +15,12 @@ function App() {
   const [datas,setDatas] = useState();
 
   useEffect(() => {
-    //이렇게 하니까 핸드폰에서는 화면이 안나옴.
-    //json-server에 올려둔 데이터 불러오기
+
     const dataLoad = async () => {
 
       const response = await fetch("http://localhost:9000/users");
       const json = await response.json();
       
-      //초기값만 따로 저장하기
       let ogData = json.map(one=> {
         return {id: one.id, checked: one.checked}
       })
@@ -38,7 +36,6 @@ function App() {
     <Router>
       <Routes>
         <Route element={<Layout />}>
-      
           <Route path="/" element={<PAGE01 ogData={datas}/>} />
           <Route path="/user" element={<PAGE02 />} />
           <Route path="/user/:id" element={<PAGE03 />} />

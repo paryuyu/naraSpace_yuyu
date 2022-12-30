@@ -46,7 +46,7 @@
       "date": "2013-02-12",
       "comment": "I'll give you only good",
       "image": "5.png",
-      "checked": false
+      "checked": true
     },
     {
       "id": 7,
@@ -78,7 +78,7 @@
       "date": "2002-06-07",
       "comment": "춘식이는 고양이",
       "image": "8.png",
-      "checked": true
+      "checked": false
     },
     {
       "id": 11,
@@ -118,7 +118,7 @@
       "date": "1980-07-31",
       "comment": "알로호모라 (Alohomora)",
       "image": "12.png",
-      "checked": true
+      "checked": false
     },
     {
       "id": 16,
