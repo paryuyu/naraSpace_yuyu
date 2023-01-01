@@ -181,9 +181,6 @@ export default function PAGE01({ ogData }) {
     let dispatch = useDispatch();
     const users = useSelector(state => state);
 
-
-
-
     const handleSort = (evt) => {
 
         switch (selectedVal) {
