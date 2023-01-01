@@ -164,7 +164,6 @@ export default function PAGE02() {
 
         if(list.length>0 && !selecId){
           let listItem = list.filter(e => e.checked)
-          console.log(listItem[0].id)
           setSelecId(listItem[0].id)
         }
 

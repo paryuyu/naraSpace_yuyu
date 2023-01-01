@@ -11,7 +11,7 @@ import styled from 'styled-components';
 
 function App() {
 
-  const BodyComponent = styled.body`
+  const BodyComponent = styled.div`
     font-family: "Suit-Variable";
     display: flex;
     height: 100vh;

@@ -53,10 +53,6 @@ function ListItem({ items }) {
     setChk(items.checked)
   }, [])
 
-  const checkHandle = (evt) => {
-    console.log(evt.target.checked, 'evt.target.checked')
-
-  }
 
   const itemBoxClickHandle = (evt) => {
     setChk(current => !current)
@@ -75,7 +71,7 @@ function ListItem({ items }) {
     <Item onClick={itemBoxClickHandle} className={chk && "selected"}>
       <NameText>{items.name}</NameText>
       <DateText>{items.date}</DateText>
-      <ChkInput type='checkbox' checked={chk} onChange={checkHandle} />
+      <ChkInput type='checkbox' checked={chk} onChange={()=>{console.log(chk)}}/>
     </Item>
     <hr style={{ margin: 0 }} />
   </>);

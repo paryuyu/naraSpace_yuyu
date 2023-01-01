@@ -168,9 +168,11 @@ const SelectedList = styled.li`
     
 `
 
-//폰트도 바꿔주기
-//30 40 10 퍼센트로 해주기
-
+const HeaderMiniBox = styled.div`
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+`
 export default function PAGE01({ ogData }) {
     const [selectedUp, setSelectedUp] = useState(true);
     const [selectedDown, setSelectedDown] = useState(true);
@@ -227,7 +229,6 @@ export default function PAGE01({ ogData }) {
             setSelectedDown(true);
         }
     }
-    console.log(selectedDown,'</div>')
 
 
 
@@ -236,7 +237,7 @@ export default function PAGE01({ ogData }) {
         <Container>
             <TopOutLined>
                 <MiniHeader>
-                   <div style={{ display: 'flex', justifyContent: 'space-around' , alignItems:'center'}}>
+                   <HeaderMiniBox>
                         <p>이름</p>
                         <p>생년월일</p>
 
@@ -251,7 +252,7 @@ export default function PAGE01({ ogData }) {
                             </SelectedBox>
                         </SelectOutlinedBox>
 
-                    </div>
+                    </HeaderMiniBox>
                 </MiniHeader>
 
                 <ListOutLined>
