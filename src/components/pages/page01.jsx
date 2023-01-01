@@ -22,13 +22,11 @@ const Container = styled.div`
         padding-left:20px;
         padding-right:20px;
         background:#EBEBEB;
-
     }
    
 `
 const TopOutLined = styled.div`
     width:250px;
-
     background-color: #FFFFFF;
     @media screen and (max-width: 650px){
         height:293px;

@@ -31,15 +31,15 @@ const NameText = styled.p`
 const DateText = styled.p`
   flex:6;
   @media screen and (max-width: 650px){
-    flex:1.5;
+    flex:1.2;
 }`
 
 const ChkInput = styled.input`
   color: #4130BE;
   flex:0.5;
   @media screen and (max-width: 650px){
-    flex:0.15;
-    margin-right: 60px;
+    flex:0.1;
+    margin-right: 75px;
 }`
 
 function ListItem({ items }) {
