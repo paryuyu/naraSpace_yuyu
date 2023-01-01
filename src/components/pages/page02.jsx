@@ -141,6 +141,14 @@ const ListOutlined = styled.div`
     }
 `
 
+
+
+
+
+
+
+
+
 export default function PAGE02() {
     const [selecId, setSelecId] = useState();
     const [selectedUp, setSelectedUp] = useState(true);
@@ -149,10 +157,12 @@ export default function PAGE02() {
     let list = useSelector(state => state)
 
     let handleDetail = (id) => {
+
         setSelecId(id)
     }
 
-    
+
+    //첫 로딩화면에 셀렉트한 데이터가 없으면 첫번째 데이터가 보여지기
     useEffect(()=>{
 
         if(list.length>0 && !selecId){
@@ -179,6 +189,7 @@ export default function PAGE02() {
     }
 
     const handleSelect = () => {
+        
         if (selectedUp === true) {
             setSelectedUp(false);
         } else {
@@ -217,10 +228,9 @@ export default function PAGE02() {
 
 
             <ItemDetailBox>
-                {list.map((one, index) => {
-                    if (one.id === selecId) {
+                {list.filter(e=> e.id === selecId).map((one, index) => {
                         return <ItemDetail01 item={one} key={index} />
-                    }
+                    
                 })
                 }
             </ItemDetailBox>

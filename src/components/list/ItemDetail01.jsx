@@ -8,6 +8,7 @@ import styled from "styled-components";
 export default function ItemDetail01({ item }) {
     const [pathVal, setPathVal] = useState();
     const [img, setImg] = useState("default.png");
+    console.log(img,item)
     const navigate = useNavigate()
     const { id } = useParams()
 
@@ -61,11 +62,12 @@ export default function ItemDetail01({ item }) {
 
     useEffect(() => {
         if (item) {
-
             let src = item.image;
 
-            if (src.length > 0) {
+            if (src) {
                 setImg(src)
+            }else{
+                setImg("default.png")
             }
 
         }
@@ -76,7 +78,9 @@ export default function ItemDetail01({ item }) {
             setPathVal('p3')
         }
 
-    }, [])
+    }, [item])
+
+
 
     const handleClick = () => {
         navigate(`/user/${item.id}`)
@@ -87,9 +91,10 @@ export default function ItemDetail01({ item }) {
 
             <ImgBox >
 
-                <img style={{ position: "absolute", top: "40px" }} src={require(`../../profile_img/${img}`)} />
-            </ImgBox>
+     <img style={{ position: "absolute", top: "40px" }} src={require(`../../profile_img/${img}`)} />
 
+             
+            </ImgBox>
 
             <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', flex: 1, padding: "25px" }}>
                 <TextBox>
