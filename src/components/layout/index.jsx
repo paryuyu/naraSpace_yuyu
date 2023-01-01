@@ -52,12 +52,18 @@ height: 100%;
 const PageNumber = styled.p`
     margin-right:20;
     cursor:pointer;
+    color:#FFFFFF;
+    margin-right: 35px ;
+    &.selected{
+        color:#4130BE;
+        height: 100%;
+}
 `
 
 const LogoImg = styled.img`
     height:21px;
     margin:10px;
- 
+
 `
 
 export default function Layout() {
@@ -67,7 +73,9 @@ export default function Layout() {
 
 
     const handlePage = (evt) => {
+
         let target = evt.target.innerText;
+        
         switch (target) {
             case "page01":
                 setChk("p1")
@@ -87,15 +95,13 @@ export default function Layout() {
 
             <LogoImg onClick={() => { navigate("/"); }} src="/nara_logo.png" />
 
-            <PageNumberBox >
+            <PageNumberBox>
                 <PageNumber className={chk === "p1" && "selected"} onClick={handlePage}>page01</PageNumber>
                 <PageNumber className={chk === "p2" && "selected"} onClick={handlePage}>page02</PageNumber>
             </PageNumberBox>
 
             <MPageNumberBox >
-
                 <MpageNumber className={chk === "p1" && "selected"} onClick={handlePage}>page01</MpageNumber>
-
                 <MpageNumber className={chk === "p2" && "selected"} onClick={handlePage}>page02</MpageNumber>
             </MPageNumberBox>
 

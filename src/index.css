@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: Suit;
 }
 
 code {
@@ -12,4 +13,5 @@ code {
   display: flex;
   height: 100vh;
   flex-direction: column;
+ 
 }

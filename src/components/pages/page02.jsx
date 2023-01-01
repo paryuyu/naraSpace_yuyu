@@ -27,7 +27,6 @@ const MiniHeader = styled.div`
         width: 100%;
         height: 49px;
         background: rgba(65, 48, 190, 0.6);
-        
         align-items: center;
         color:#FFFFFF
     }
@@ -181,7 +180,7 @@ export default function PAGE02() {
             <ListOutlined >
                 <OutLined>
                     <MiniHeader>
-
+        
                         <SelectOutlinedBox>
                             <SelectedBt onClick={handleSelect}>오름차 순<img src="/select_arrow.png" /> </SelectedBt>
 

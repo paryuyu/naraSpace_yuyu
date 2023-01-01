@@ -30,7 +30,7 @@
       "date": "2002-06-07",
       "comment": "Cheers!",
       "image": "",
-      "checked": true
+      "checked": false
     },
     {
       "id": 5,
@@ -38,7 +38,7 @@
       "date": "2010-07-21",
       "comment": "VODKA",
       "image": "4.png",
-      "checked": true
+      "checked": false
     },
     {
       "id": 6,
