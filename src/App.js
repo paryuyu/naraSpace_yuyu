@@ -7,8 +7,16 @@ import PAGE01 from './components/pages/page01';
 import PAGE02 from './components/pages/page02';
 import { useDispatch } from 'react-redux';
 import PAGE03 from './components/pages/page03';
+import styled from 'styled-components';
 
 function App() {
+
+  const BodyComponent = styled.body`
+  font-family: "Suit-Variable";
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  `
 
   const dispatch = useDispatch();
   const [datas, setDatas] = useState();
@@ -16,7 +24,7 @@ function App() {
   useEffect(() => {
 
     const dataLoad = async () => {
-      
+
       const response = await fetch("http://localhost:9000/users");
       const json = await response.json();
 
@@ -28,10 +36,14 @@ function App() {
     }
 
     dataLoad();
+
   }, []);
 
-  return (
 
+
+
+  return (
+<BodyComponent>
     <Router>
       <Routes>
         <Route element={<Layout />}>
@@ -41,6 +53,7 @@ function App() {
         </Route>
       </Routes>
     </Router>
+    </BodyComponent>
   );
 }
 
