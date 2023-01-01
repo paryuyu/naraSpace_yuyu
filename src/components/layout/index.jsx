@@ -75,7 +75,7 @@ export default function Layout() {
     const handlePage = (evt) => {
 
         let target = evt.target.innerText;
-        
+
         switch (target) {
             case "page01":
                 setChk("p1")
@@ -106,6 +106,7 @@ export default function Layout() {
             </MPageNumberBox>
 
         </Outlined>
+        
         <Outlet />
     </>);
 }

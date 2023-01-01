@@ -1,4 +1,5 @@
-    import { useSelector } from "react-redux";
+    import { useState } from "react";
+import { useSelector } from "react-redux";
     import { useParams } from "react-router-dom";
     import styled from "styled-components";
     import ItemDetail01 from "../list/ItemDetail01";
@@ -21,6 +22,8 @@
         const { id } = useParams();
         let list = useSelector(state => state)
         const found = list.find((e) => e.id.toString() === id);
+     
+
 
         return (
             <ItemOutline>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import ListItemThree from "../list/Item03";
@@ -147,9 +147,21 @@ export default function PAGE02() {
     const [selectedVal, setSelectedVal] = useState("up");
     
     let list = useSelector(state => state)
+
     let handleDetail = (id) => {
         setSelecId(id)
     }
+
+    
+    useEffect(()=>{
+
+        if(list.length>0 && !selecId){
+          let listItem = list.filter(e => e.checked)
+          console.log(listItem[0].id)
+          setSelecId(listItem[0].id)
+        }
+
+    },[list])
 
 
     const dispatch = useDispatch();
