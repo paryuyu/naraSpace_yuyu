@@ -21,18 +21,26 @@ border-bottom:1px solid #EBEBEB;
 
 const NameText = styled.p`
     flex:1;
-`
+    @media screen and (max-width: 650px){
+    margin-left: 20px;
+    
+
+}`
+
 
 const DateText = styled.p`
     flex:1;
+    @media screen and (max-width: 650px){
+        flex:0.6
+}
 `
 
 
 
 function ListItemThree({ items, onDetail }) {
-    
+
     return (<>
-        <Item onClick={()=>{onDetail(items.id)}}>
+        <Item onClick={() => { onDetail(items.id) }}>
             <NameText>{items.name}</NameText>
             <DateText>{items.date}</DateText>
         </Item>

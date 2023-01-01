@@ -8,9 +8,15 @@ code {
     monospace;
 }
 
+
+@font-face {
+  font-family: 'Suit-Variable';
+  src: url('../src/components/layout/SUIT-Variable.ttf');
+}
+
 #root {
   display: flex;
   height: 100vh;
   flex-direction: column;
- 
+  font-family:'Suit-Variable' ;
 }
