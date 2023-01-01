@@ -2,7 +2,15 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
-
+const DetailTextBox = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex:1;
+    padding: 25px;
+    //프로필 이미지가 다 다름.
+    margin-top: 40px;
+`
 
 
 export default function ItemDetail01({ item }) {
@@ -20,11 +28,13 @@ export default function ItemDetail01({ item }) {
 
     const Text = styled.p`
         font-weight:200;
+        flex:3;
     `
     const TitleText = styled.p`
         margin-right:4px;
         margin-left: 4px;
         font-weight:bold;
+        flex:1;
     `
 
     const OutlinedBox = styled.div`
@@ -90,13 +100,10 @@ export default function ItemDetail01({ item }) {
         {item && <OutlinedBox className={pathVal === "p3" ? "p3" : "p2"} onClick={handleClick}>
 
             <ImgBox >
-
      <img style={{ position: "absolute", top: "40px" }} src={require(`../../profile_img/${img}`)} />
-
-             
             </ImgBox>
 
-            <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', flex: 1, padding: "25px" }}>
+            <DetailTextBox >
                 <TextBox>
                     <TitleText>이름</TitleText>
                     <Text>{item.name}</Text>
@@ -110,7 +117,7 @@ export default function ItemDetail01({ item }) {
                     <TitleText>한마디</TitleText>
                     <Text>{item.comment}</Text>
                 </TextBox>
-            </div>
+            </DetailTextBox>
         </OutlinedBox>}
     </>);
 }

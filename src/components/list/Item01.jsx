@@ -22,6 +22,26 @@ background:#FFFFFF;
 
 `
 
+const NameText = styled.p`
+  flex:3;
+  @media screen and (max-width: 650px){
+    flex:1;
+}`
+
+const DateText = styled.p`
+  flex:6;
+  @media screen and (max-width: 650px){
+    flex:1.5;
+}`
+
+const ChkInput = styled.input`
+  color: #4130BE;
+  flex:0.5;
+  @media screen and (max-width: 650px){
+    flex:0.15;
+    margin-right: 60px;
+}`
+
 function ListItem({ items }) {
 
   let itemRef = useRef();
@@ -53,9 +73,9 @@ function ListItem({ items }) {
 
   return (<>
     <Item onClick={itemBoxClickHandle} className={chk && "selected"}>
-      <p>{items.name}</p>
-      <p>{items.date}</p>
-      <input type='checkbox' checked={chk} onChange={checkHandle} />
+      <NameText>{items.name}</NameText>
+      <DateText>{items.date}</DateText>
+      <ChkInput type='checkbox' checked={chk} onChange={checkHandle} />
     </Item>
     <hr style={{ margin: 0 }} />
   </>);

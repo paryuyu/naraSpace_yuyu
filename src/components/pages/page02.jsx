@@ -18,7 +18,7 @@ const OutLined = styled.div`
 const MiniHeader = styled.div`
     display: flex;
     flex-direction: column;
-    background:#cbc5f0;
+    background:#b2ace1;
     padding: 5px;
     height: 93px;
     box-sizing: border-box;
@@ -26,8 +26,10 @@ const MiniHeader = styled.div`
     @media screen and (max-width: 650px){
         width: 100%;
         height: 49px;
+        z-index: 100;
         background: rgba(65, 48, 190, 0.6);
         align-items: center;
+        justify-content: center;
         color:#FFFFFF
     }
    
@@ -36,7 +38,7 @@ const MiniHeader = styled.div`
 const SelectOutlinedBox = styled.div`
     position: relative;
     @media screen and (max-width: 650px){
-  display: none;
+      display: none;
     }
 `
 
@@ -87,7 +89,6 @@ const SelectedBox = styled.ul`
         display: none;
         padding: 0%;
     }
-   
     
 `
 
@@ -101,8 +102,8 @@ const ItemDetailBox = styled.div`
     width: 352px;
     @media screen and (max-width: 650px){
         width: 100%;
-       height: 425px;
-       order: -1;
+        height: 425px;
+        order: -1;
     }
    
 `
@@ -125,12 +126,15 @@ const ListBox = styled.div`
 
   @media screen and (max-width: 650px){
        flex-direction: column;
-        height: 200px;
+        height: 205px;
     }
 `
 const MiniHeaderTwo = styled.div`
     display: flex;
+    width: 100%;
     justify-content: space-around;
+    align-items: center;
+    
 `
 const ListOutlined = styled.div`
      margin-right:20px;
@@ -140,13 +144,6 @@ const ListOutlined = styled.div`
       margin:0px;
     }
 `
-
-
-
-
-
-
-
 
 
 export default function PAGE02() {
@@ -203,7 +200,7 @@ export default function PAGE02() {
             <ListOutlined >
                 <OutLined>
                     <MiniHeader>
-        
+
                         <SelectOutlinedBox>
                             <SelectedBt onClick={handleSelect}>오름차 순<img src="/select_arrow.png" /> </SelectedBt>
 
@@ -212,10 +209,12 @@ export default function PAGE02() {
                                 <SelectedList><SelectedDown onClick={() => { setSelectedVal("down"); handleSort(); setSelectedUp(c => !c); }} >내림차 순</SelectedDown></SelectedList>
                             </SelectedBox>
                         </SelectOutlinedBox>
+
                         <MiniHeaderTwo>
                             <p>이름</p>
                             <p>생년월일</p>
                         </MiniHeaderTwo>
+
                     </MiniHeader>
 
                     <ListBox>
@@ -225,8 +224,6 @@ export default function PAGE02() {
                     </ListBox>
                 </OutLined>
             </ListOutlined>
-
-
             <ItemDetailBox>
                 {list.filter(e=> e.id === selecId).map((one, index) => {
                         return <ItemDetail01 item={one} key={index} />

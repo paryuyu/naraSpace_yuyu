@@ -9,12 +9,23 @@ border-bottom: 1px solid #EBEBEB;
 padding-left: 20px;
 padding-right: 20px;
 `
+const NameText = styled.p`
+  flex:1;
+`
+
+const DateText = styled.p`
+  flex:1;
+  @media screen and (max-width: 650px){
+    flex:1.8;
+}`
+
+
 
 function ListItemTwo({ items }) {
   return (<>
     <Item >
-      <p>{items.name}</p>
-      <p>{items.date}</p>
+      <NameText>{items.name}</NameText>
+      <DateText>{items.date}</DateText>
     </Item>
   </>);
 }

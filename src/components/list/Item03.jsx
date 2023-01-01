@@ -19,12 +19,22 @@ border-bottom:1px solid #EBEBEB;
   
 `
 
+const NameText = styled.p`
+    flex:1;
+`
+
+const DateText = styled.p`
+    flex:1;
+`
+
+
+
 function ListItemThree({ items, onDetail }) {
     
     return (<>
         <Item onClick={()=>{onDetail(items.id)}}>
-            <p>{items.name}</p>
-            <p>{items.date}</p>
+            <NameText>{items.name}</NameText>
+            <DateText>{items.date}</DateText>
         </Item>
     </>);
 }

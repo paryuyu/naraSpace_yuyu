@@ -6,7 +6,7 @@
       "date": "1984-02-23",
       "comment": "I like to play.",
       "image": "1.png",
-      "checked": false
+      "checked": true
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "date": "1995-01-12",
       "comment": "This is innovation.",
       "image": "2.png",
-      "checked": false
+      "checked": true
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "date": "2020-10-11",
       "comment": "Have a nice day!",
       "image": "3.png",
-      "checked": true
+      "checked": false
     },
     {
       "id": 4,
@@ -38,7 +38,7 @@
       "date": "2010-07-21",
       "comment": "VODKA",
       "image": "4.png",
-      "checked": false
+      "checked": true
     },
     {
       "id": 6,
@@ -46,7 +46,7 @@
       "date": "2013-02-12",
       "comment": "I'll give you only good",
       "image": "5.png",
-      "checked": true
+      "checked": false
     },
     {
       "id": 7,
@@ -70,7 +70,7 @@
       "date": "2002-06-07",
       "comment": "지치고 힘들 때 하나씩 꺼내 먹어요.",
       "image": "",
-      "checked": true
+      "checked": false
     },
     {
       "id": 10,
@@ -78,7 +78,7 @@
       "date": "2002-06-07",
       "comment": "춘식이는 고양이",
       "image": "8.png",
-      "checked": false
+      "checked": true
     },
     {
       "id": 11,
@@ -86,7 +86,7 @@
       "date": "1999-09-09",
       "comment": "해보는 거야! 지금이 아니면 영원히 못해.",
       "image": "9.png",
-      "checked": true
+      "checked": false
     },
     {
       "id": 12,
@@ -102,7 +102,7 @@
       "date": "2019-09-02",
       "comment": "너무 심각할 것 없어. 잘 될거야. 시간을 가져.",
       "image": "11.png",
-      "checked": false
+      "checked": true
     },
     {
       "id": 14,
@@ -110,7 +110,7 @@
       "date": "2002-06-07",
       "comment": "If winter comes, can spring be far behind.",
       "image": "",
-      "checked": true
+      "checked": false
     },
     {
       "id": 15,

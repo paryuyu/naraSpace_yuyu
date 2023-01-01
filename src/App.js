@@ -12,10 +12,10 @@ import styled from 'styled-components';
 function App() {
 
   const BodyComponent = styled.body`
-  font-family: "Suit-Variable";
-  display: flex;
-  height: 100vh;
-  flex-direction: column;
+    font-family: "Suit-Variable";
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
   `
 
   const dispatch = useDispatch();
@@ -43,16 +43,16 @@ function App() {
 
 
   return (
-<BodyComponent>
-    <Router>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<PAGE01 ogData={datas} />} />
-          <Route path="/user" element={<PAGE02 />} />
-          <Route path="/user/:id" element={<PAGE03 />} />
-        </Route>
-      </Routes>
-    </Router>
+    <BodyComponent>
+      <Router>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<PAGE01 ogData={datas} />} />
+            <Route path="/user" element={<PAGE02 />} />
+            <Route path="/user/:id" element={<PAGE03 />} />
+          </Route>
+        </Routes>
+      </Router>
     </BodyComponent>
   );
 }

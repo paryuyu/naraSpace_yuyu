@@ -1,6 +1,5 @@
-import { Children } from "react";
 import { createGlobalStyle } from "styled-components";
-import SuitFont from '../../styles/SUIT-Variable.ttf'
+import SuitFont from './SUIT-Variable.ttf'
 
   const GlobalFont = createGlobalStyle`
     @font-face {
@@ -9,7 +8,7 @@ import SuitFont from '../../styles/SUIT-Variable.ttf'
       font-style: normal;
       src: url(${SuitFont}) format('truetype');}
 `
-    
+
 
 
 export default GlobalFont;

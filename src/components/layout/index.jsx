@@ -61,6 +61,7 @@ const PageNumber = styled.p`
 `
 
 const LogoImg = styled.img`
+cursor: pointer;
     height:21px;
     margin:10px;
 
@@ -106,7 +107,7 @@ export default function Layout() {
             </MPageNumberBox>
 
         </Outlined>
-        
+
         <Outlet />
     </>);
 }
